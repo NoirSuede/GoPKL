@@ -1,0 +1,89 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <conio.h>
+
+int masakan;
+int bubur;
+int mie;
+int martabak;
+
+
+main(){
+	printf("What kind of food do you want? \n");
+	printf("1.Bubur \n");
+	printf("2.Mie \n");
+	printf("3.Martabak \n");
+	scanf("%d", &masakan);
+	
+	printf("Looking for a gerobak near you: \n");
+	while(1){
+	
+		int tunggu;
+		srand(time(0)); 
+		tunggu = rand()%10000 + 1;
+		
+		clock_t start_time = clock();
+			
+		while(clock()-start_time<10000){
+			if(clock()-start_time>10000){
+				printf("No gerobak that sells the food you want is found \n");
+				main();
+			}
+			
+			else if(clock()-start_time==tunggu){
+				clock_t end_time = clock()/(tunggu/10);
+				switch(masakan){
+					case 1:
+						srand(time(0)); 
+						bubur = rand()%2 + 1;
+							if(bubur==1){
+								printf("Gerobak Naik Haji is arriving! \n");
+								break;
+							}
+							else if(bubur==2){
+								printf("Gerobak Bubur Cimin is arriving! \n");
+								break;
+							}
+							else if(bubur==3){
+								printf("Gerobak Geli-Geli Made is arriving! \n");
+								break;
+							}
+					case 2:
+						srand(time(0)); 
+						mie = rand()%2 + 1;
+							if(mie==1){
+								printf("Gerobak Ninja-Ninja is arriving! \n");
+								break;
+							}
+							else if(mie==2){
+								printf("Gerobak Sekolah Polres Depok is arriving! \n");
+								break;
+							}
+							else if(mie==3){
+								printf("Gerobak Mie Mesin Waktu is arriving! \n");
+								break;
+							}
+					case 3:
+						srand(time(0)); 
+						martabak = rand()%2 + 1;
+							if(martabak==1){
+								printf("Gerobak Martabak Baja Hitam is arriving! \n");
+								break;
+							}
+							else if(martabak==2){
+								printf("Gerobak Bos Jangkrik is arriving! \n");
+								break;
+							}
+							else if(martabak==3){
+								printf("Gerobak Martabak Amazon is arriving! \n");
+								break;
+							}
+				}
+				main();
+			}
+		}	
+	}
+		
+}
